@@ -1,0 +1,26 @@
+
+<div class="container">
+
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation"><a href="/">Events</a></li>
+        <li role="presentation"><a href="/">Brands</a></li>
+        <li role="presentation"><a href="/">Training spot</a></li>
+        <li role="presentation"><a href="/">Class</a></li>
+
+        <% if (!locals.user) { %>
+          <li role="presentation"><a href="/users/register">Register</a></li>
+          <li role="presentation"><a href="/users/login">Login</a></li>
+          <% }
+
+         if (locals.user) { %>
+        <li role="presentation"><a href="/events">Annonce</a></li>
+        <li role="presentation"><a href="/users/Logout">Logout</a></li>
+
+        <% } %>
+
+      </ul>
+    </nav>
+    <h3 class="text-muted">CHECK!T.</h3>
+  </div>
