@@ -82,3 +82,9 @@ body {
 .page-header {
   margin-top: 0;
 }
+
+.checkit-background {
+  background-image: url('../img/backgroundheader.png');
+  background-size: 100%;
+  width: 100vw;
+}

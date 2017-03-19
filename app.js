@@ -9,7 +9,7 @@ const express           = require('express'),
       passport          = require('passport'),
       bcrypt            = require('bcryptjs'),
       mongoose          = require('mongoose'),
-      port              = process.env.PORT || '3000';
+      port              = process.env.PORT || '9800';
 
 mongoose.connect('mongodb://checkit:Billgates1@ds127300.mlab.com:27300/danceco');
 var db = mongoose.connection;
