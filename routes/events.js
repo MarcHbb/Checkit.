@@ -2,11 +2,20 @@ const express = require('express'),
       flash   = require('express-flash'),
       router  = express.Router();
 
-// var Event = require('../models/Event')
+var Event = require('../models/Event')
 
-router.get('/events', (req, res) => {
+router.get('/events', ensureAuthentificated ,(req, res) => {
   res.render('events', {msg: req.flash('success') });
 });
+
+function ensureAuthentificated(req, res, next) {
+  if(req.isAuthenticated()){
+    return next();
+  } else {
+    req.flash('error_msg', 'You must login to publish events');
+    res.redirect('/users/login');
+  }
+}
 
 router.post('/events', (req, res) => {
   var eventName  = req.body.eventName,
@@ -18,9 +27,10 @@ router.post('/events', (req, res) => {
       moneyPrice = res.body.price,
       city        = res.body.city;
       */
+
     // Validation
-    req.checkBody('category', 'Category is required').notEmpty();
     req.checkBody('eventName', 'Name of the event is required').notEmpty();
+    req.checkBody('category', 'Category is required').notEmpty();
     /*
     req.checkBody('versus', 'Versus is required').notEmpty();
     req.checkBody('price', 'Price is required').notEmpty();
@@ -33,9 +43,9 @@ router.post('/events', (req, res) => {
     if(errors){
       res.render('events', { errors : errors });
     } else {
-      var newEvent = new Event ({
-        category: category,
-        eventName: eventName
+      var newEvent = new Event({
+        eventName: eventName,
+        category: category
         /*
         desc: desc,
         versus: versus,
@@ -49,7 +59,7 @@ router.post('/events', (req, res) => {
         console.log(event);
       });
       req.flash('success', 'Your event has been registered');
-      req.redirect('/events');
+      res.redirect('/events');
     }
 
 });

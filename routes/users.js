@@ -2,7 +2,7 @@ const express       = require('express'),
       flash         = require('express-flash'),
       router        = express.Router(),
       passport      = require('passport'),
-      LocalStrategy = require('passport-local');
+      LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/User');
 
@@ -30,40 +30,50 @@ router.post('/register', (req, res) => {
   var errors = req.validationErrors();
 
   if(errors){
-    res.render('register', { errors : errors });
+      res.render('register', { errors : errors });
   } else {
-    var newUser = new User({
-      username: username,
-      password: password
-    });
-    User.createUser(newUser, (err, user) => {
-      if(err) throw err;
-      console.log(user);
-    });
-    req.flash('success', 'You are registered and can now login');
-    res.redirect('/users/login');
+      var newUser = new User({
+          username: username,
+            password: password
+      });
+
+      User.getUserByUsername(newUser.username, (err, user) => {
+          if(err) throw err;
+          if(user) {
+              res.render('register', { message : 'mabite'});
+          } else {
+              User.createUser(newUser, (err, user) => {
+                  if(err) throw err;
+              });
+
+              req.flash('success', 'You are registered and can now login');
+              res.redirect('/users/login');
+          }
+      });
+
   }
 
 });
 
-passport.use(new LocalStrategy( (username, password, done) => {
-  User.getUserByUsername(username, (err, user) => {
+// Check info for login
+passport.use(new LocalStrategy(
+  (username, password, done) => {
+   User.getUserByUsername(username, function(err, user){
+   	if(err) throw err;
+   	if(!user){
+   		return done(null, false);
+   	}
 
-    if(err) throw err;
-    if(!user){
-      return done(null, false, {message:  'Unknown user'});
-    }
-
-    User.comparePassword(password, user.password, (err, isMatch) => {
-      if(err) throw err;
-      if(isMatch) {
-        return done(null, user);
-      } else {
-        return done(null, false, {message :'Invalid password'});
-      }
-    });
-  });
-}));
+   	User.comparePassword(password, user.password, function(err, isMatch){
+   		if(err) throw err;
+   		if(isMatch){
+   			return done(null, user);
+   		} else {
+   			return done(null, false);
+   		}
+   	});
+   });
+  }));
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -76,13 +86,12 @@ passport.deserializeUser((id, done) => {
 });
 
 router.post('/login',
-  passport.authenticate('local', {
-      successRedirect:'/',
-      failureRedirect:'/users/login',
-      failureFlash:'true' }), (req, res) => {
-
+  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash:'Invalid username or password'}),
+  (req, res) => {
     res.redirect('/');
   });
+
+
 
 router.get('/logout', (req, res) => {
   req.logout();

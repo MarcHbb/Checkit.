@@ -3,13 +3,11 @@
 <% include shared/menu.ejs %>
 
 
-<% if ( msg.length > 0 ) { %>
-  <div class="alert alert-success"><%= msg %> </div>
-<% } 
+<% if (error. length > 0) { %>
+  <div class="alert alert-danger"><%= error %> </div>
+<% }  %>
 
- if (error_msg.length > 0){ %>
-   <div class="alert alert-danger"><%= error_msg %></div>
- <% } %>
+
 
 <h2 class="page-header">Account Login</h2>
 <form method="post" action="/users/login">
