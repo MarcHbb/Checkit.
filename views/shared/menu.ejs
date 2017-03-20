@@ -1,30 +1,69 @@
 
-<div class="row container jumbotron checkit-background">
-
+<div class="row">
+  <div class="container jumbotron checkit-background">
   <div class="header clearfix">
+  <!--
     <nav>
       <ul class="nav nav-pills pull-right">
-        <li role="presentation"><a href="/">Events</a></li>
-        <li role="presentation"><a href="/">Brands</a></li>
-        <li role="presentation"><a href="/">Training spot</a></li>
-        <li role="presentation"><a href="/">Class</a></li>
-
+        <li role="presentation">
+          <a href="/">
+            Events
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="/">
+            Brands
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="/">
+            Training spot
+          </a>
+        </li>
         <% if (!locals.user) { %>
-          <li role="presentation"><a href="/users/register">Register</a></li>
-          <li role="presentation"><a href="/users/login">Login</a></li>
-          <% }
-
+        <li role="presentation">
+          <a href="/users/register">
+            Register
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="/users/login">
+            Login
+          </a>
+        </li>
+        <% }
          if (locals.user) { %>
-        <li role="presentation"><a href="/events">Annonce</a></li>
-        <li role="presentation"><a href="/users/Logout">Logout</a></li>
-
+        <li role="presentation">
+          <a href="/events">
+            Annonce
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="/users/Logout">
+            Logout
+          </a>
+        </li>
         <% } %>
-
       </ul>
     </nav>
-    <h3 class="text-muted">CHECK !t.</h3>
+    -->
+
+    <h3 class="text-muted">
+      <a href="/">
+        CHECK !t.
+      </a>
+    </h3>
     <br>
     <br>
     <br>
-    <div class="typeMoment"></div>
+    <div class="typeMoment">
+    </div>
+    <div class="check-navbar">
+     <h3><i class="fa fa-calendar fa-lg check-navbar-item"></i> Evenements</h3>
+     <h3><i class="fa fa-shoppinig-bag fa-lg check-navbar-item"></i> Marques</h3>  
+     <h3><i class="fa fa-street-view fa-lg check-navbar-item"></i> Training Spots</h3>  
+     <h3><i class="fa fa-street-view fa-lg check-navbar-item"></i></h3>  
+    </div>
   </div>
+</div>
+</div>

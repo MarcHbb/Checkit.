@@ -61,17 +61,22 @@
   .jumbotron {
     border-bottom: 0;
   }
+
+
 }
 
 .page-header {
   margin-top: 0;
 }
 
+
 .checkit-background {
   background-image: url('../img/backgroundMan.png');
+  background-color: black;
   background-size: 100%;
   width: 100vw;
   height: 80vh;
+  background-repeat: no-repeat;
 }
 
 .text-muted {
@@ -79,13 +84,34 @@
   color: white;
 }
 
+.text-muted > a {
+  color: white;
+  text-decoration: none;
+}
+
 .typeMoment {
-  font-size: 4em;
+  font-size: 5em;
   font-family: CheckIt;
   color:white;
+  height: 100px;
 }
 
 @font-face {
     font-family: CheckIt;
     src: url('../fonts/California.ttf');
 }
+
+/* NAVBAR CHECKIT */
+
+.check-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.check-navbar-item {
+  padding: 30px;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
