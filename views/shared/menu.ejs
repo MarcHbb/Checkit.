@@ -1,69 +1,51 @@
 
 <div class="row">
   <div class="container jumbotron checkit-background">
-  <div class="header clearfix">
-  <!--
-    <nav>
-      <ul class="nav nav-pills pull-right">
-        <li role="presentation">
-          <a href="/">
-            Events
+    <div class="header clearfix">
+      <nav class="wrap-menu">
+        <div class="check-navbar-top-item hidden-sm hidden-xs">
+          <a href="/" class="sliding-u-l-r-l">
+            <span>Evenements</span>
           </a>
-        </li>
-        <li role="presentation">
-          <a href="/">
-            Brands
+          <a href="/" class="sliding-u-l-r-l">
+            <span>Training Spots</span>
           </a>
-        </li>
-        <li role="presentation">
-          <a href="/">
-            Training spot
-          </a>
-        </li>
-        <% if (!locals.user) { %>
-        <li role="presentation">
-          <a href="/users/register">
-            Register
-          </a>
-        </li>
-        <li role="presentation">
-          <a href="/users/login">
-            Login
-          </a>
-        </li>
-        <% }
-         if (locals.user) { %>
-        <li role="presentation">
-          <a href="/events">
-            Annonce
-          </a>
-        </li>
-        <li role="presentation">
-          <a href="/users/Logout">
-            Logout
-          </a>
-        </li>
-        <% } %>
-      </ul>
-    </nav>
-    -->
-
-    <h3 class="text-muted">
-      <a href="/">
-        CHECK !t.
-      </a>
-    </h3>
+            <a href="/" class="sliding-u-l-r-l">
+              <span>Marques</span>
+            </a>
+          </div>
+          <h3 class="text-muted">
+            <a href="/">
+                CHECK !t.
+             </a>
+         </h3>
+        <div class="check-navbar-bottom-item hidden-sm hidden-xs">
+            <% if (!locals.user) { %>
+            <a href="/users/register" class="sliding-u-l-r-l">
+            <span>Inscription</span>
+            </a>
+            <a href="/users/login" class="sliding-u-l-r-l">
+              <span>Connexion</span>
+            </a>
+             <% }
+             if (locals.user) { %>
+            <a href="/events" class="sliding-u-l-r-l">
+              <span>Annonces</span>
+            </a>
+            <a href="/users/Logout" class="sliding-u-l-r-l">
+              <span>Se Deconnecter</span>
+            </a>
+             <% } %>
+        </div>
+      </nav>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
     <div class="typeMoment">
     </div>
-    <div class="check-navbar">
-     <h3><i class="fa fa-calendar fa-lg check-navbar-item"></i> Evenements</h3>
-     <h3><i class="fa fa-shoppinig-bag fa-lg check-navbar-item"></i> Marques</h3>  
-     <h3><i class="fa fa-street-view fa-lg check-navbar-item"></i> Training Spots</h3>  
-     <h3><i class="fa fa-street-view fa-lg check-navbar-item"></i></h3>  
-    </div>
+   </div>
   </div>
-</div>
 </div>
