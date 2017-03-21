@@ -20,4 +20,4 @@ module.exports.getEvent = (callback) => {
       callback(obj);
     });
   });
-});
+};
