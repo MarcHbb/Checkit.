@@ -1,0 +1,44 @@
+.training-sidebar {
+    border: 1px solid #363736;
+    background: #0B0B0E;
+    width: 20%;
+    height: 100%;
+}
+
+.googlemap-sidebar {
+    border: 1px solid black;
+    width: 80%;
+    height: 100%;
+}
+
+.wrap-panel {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 92vh;
+}
+
+.wrap-footer {
+    height: 8vh;
+}
+
+.training-footer {
+    height: 100%;
+    background: #0B0B0E;
+}
+
+.training-footer-start {
+    border: 1px solid #363736;
+    width: 20%;
+    background: #151715;
+    height: 8vh;
+}
+
+.training-title {
+    font-family: CheckIt;
+}
+
+@font-face {
+    font-family: CheckIt;
+    src: url('../fonts/California.ttf');
+}
