@@ -12,7 +12,7 @@ const express           = require('express'),
       port              = process.env.PORT || '9800';
 var   db;
 
-mongoose.connect('mongodb://checkit:Billgates1@ds127300.mlab.com:27300/danceco', function(err) {
+mongoose.connect('mongodb://user:user@ds127300.mlab.com:27300/danceco', function(err) {
   if(err) return;
   db = mongoose.connection;
 });

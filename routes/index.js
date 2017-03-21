@@ -8,10 +8,9 @@ var Event = require('../models/Event');
 router.get('/', (req, res) => {
 
   Event.getEvent(function(evenement) {
-      if(err) throw err;
       console.log(evenement);
+      res.render('index');
   });
-  res.render('index');
 });
 
 module.exports = router;
