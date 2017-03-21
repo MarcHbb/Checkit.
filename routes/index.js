@@ -7,9 +7,9 @@ var Event = require('../models/Events');
 // Get Homepage
 router.get('/', (req, res) => {
 
-  Event.getEvent(function() {
+  Event.getEvent(function(evenement) {
       if(err) throw err;
-      console.log(events);
+      console.log(evenement);
     res.render('index');
   });
 });
