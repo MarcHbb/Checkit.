@@ -8,8 +8,8 @@ var Event = require('../models/Event');
 router.get('/', (req, res) => {
 
   Event.getEvent(function(evenement) {
-      console.log(evenement);
-      res.render('index');
+
+    res.render('index', { list : evenement });
   });
 });
 

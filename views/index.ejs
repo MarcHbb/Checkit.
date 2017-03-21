@@ -15,9 +15,16 @@
         <hr>
     </div>
     <div class="row">
+
+      <% for (let i = 0; i < locals.list.length; i++){ %>
+
         <div class="col-lg-4 col-md-4 col-sm-4 check-events-card">
             <div class="check-header-card ex1 text-center">
-                <h3 class="check-card-title">Who iz Who</h3>
+                <h3 class="check-card-title">
+
+                    <%= locals.list[i].eventName %>
+
+                </h3>
             </div>
             <div class="check-card-content">
                 <span>Blah blah blha bdebzudoe cebzou jdeizfj fhuzeohf efj ezuofh eozfezhfouezhdeoz fehouz</span>
@@ -34,6 +41,9 @@
                 </div>
             </div>
         </div>
+
+      <% } %>
+
     </div>
 </div>
 <div class="row training-row">
@@ -43,7 +53,7 @@
     </div>
     <div class="text-center check-training-text">
         <p>
-            Soit tu connais... Soit tu ne connais pas... Mais dans tous les cas, tu l'utiliseras. 
+            Soit tu connais... Soit tu ne connais pas... Mais dans tous les cas, tu l'utiliseras.
             Vas checker ta nouvelle app basée sur la culture street !
         </p>
         <p>
@@ -55,7 +65,7 @@
     </div>
 </div>
 <div class="row brands-row">
-    
+
 </div>
 
 <% include shared/footer.ejs %>

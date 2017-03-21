@@ -20,24 +20,18 @@ function ensureAuthentificated(req, res, next) {
 
 router.post('/events', (req, res) => {
   var eventName  = req.body.eventName,
-      category   = req.body.category;
-      /*
+      category   = req.body.category,
       desc       = req.body.desc,
-      versus     = res.body.versus,
-      price      = res.body.price,
-      moneyPrice = res.body.price,
-      city        = res.body.city;
-      */
+      versus     = res.body.versus;
+
+
 
     // Validation
     req.checkBody('eventName', 'Name of the event is required').notEmpty();
     req.checkBody('category', 'Category is required').notEmpty();
-    /*
+    req.checkBody('desc', 'Description is required').notEmpty();
     req.checkBody('versus', 'Versus is required').notEmpty();
-    req.checkBody('price', 'Price is required').notEmpty();
-    req.checkBody('moneyPrice', 'moneyPrice is required').notEmpty();
-    req.checkBody('city', 'City is required').notEmpty();
-    */
+
 
     var errors = req.validationErrors();
 
@@ -46,10 +40,10 @@ router.post('/events', (req, res) => {
     } else {
       var newEvent = new Event({
         eventName: eventName,
-        category: category
+        category: category,
+        desc: desc
         /*
-        desc: desc,
-        versus: versus,
+        versus: versus
         price: price,
         moneyPrice: moneyPrice,
         city: city;
