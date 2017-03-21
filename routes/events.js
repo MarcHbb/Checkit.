@@ -22,7 +22,7 @@ router.post('/events', (req, res) => {
   var eventName  = req.body.eventName,
       category   = req.body.category,
       desc       = req.body.desc,
-      versus     = res.body.versus;
+      versus     = req.body.versus;
 
 
 
@@ -41,9 +41,10 @@ router.post('/events', (req, res) => {
       var newEvent = new Event({
         eventName: eventName,
         category: category,
-        desc: desc
-        /*
+        desc: desc,
         versus: versus
+
+        /*
         price: price,
         moneyPrice: moneyPrice,
         city: city;
@@ -51,7 +52,6 @@ router.post('/events', (req, res) => {
       });
       Event.createEvent(newEvent, (err, event) => {
         if(err) throw err;
-        console.log(event);
       });
       req.flash('success', 'Your event has been registered');
       res.redirect('/events');

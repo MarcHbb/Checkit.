@@ -20,14 +20,15 @@
 
         <div class="col-lg-4 col-md-4 col-sm-4 check-events-card">
             <div class="check-header-card ex1 text-center">
-                <h3 class="check-card-title">
-
-                    <%= locals.list[i].eventName %>
-
-                </h3>
             </div>
             <div class="check-card-content">
-                <span>Blah blah blha bdebzudoe cebzou jdeizfj fhuzeohf efj ezuofh eozfezhfouezhdeoz fehouz</span>
+              <h3 class="check-card-title text-center">
+                <%= locals.list[i].eventName %>
+              </h3>
+              <h4 class="check-card-title text-center">
+                [<%= locals.list[i].category %>] - [<%= locals.list[i].versus %>]
+              </h4>
+                <span><%= locals.list[i].desc %> </span>
                 <div class="row text-center">
                     <button type="button" class="check-button">Check !t.</button>
                     <a href="" class="check-card-icon">
