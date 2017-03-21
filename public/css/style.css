@@ -274,6 +274,8 @@ hr {
 .check-training-text {
   color:#616261;
   font-size: 1.2em;
+  margin:0;
+  width: 100vw;
 }
 /* END Training Spot part */
 
