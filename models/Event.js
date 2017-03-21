@@ -13,11 +13,8 @@ module.exports.createEvent = (newEvent, callback) => {
 }
 
 module.exports.getEvent = (callback) => {
-  Event.find({}).toArray((error, results) => {
+  Event.find({}, (error, results) => {
     if(error) throw error;
-
-    results.forEach((i, obj) => {
-      callback(obj);
+      callback(results);
     });
-  });
-};
+}
