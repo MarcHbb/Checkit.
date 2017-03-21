@@ -5,6 +5,7 @@ const express = require('express'),
 var Event = require('../models/Event')
 
 router.get('/events', ensureAuthentificated ,(req, res) => {
+
   res.render('events', {msg: req.flash('success') });
 });
 
