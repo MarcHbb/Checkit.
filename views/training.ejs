@@ -14,9 +14,23 @@
                 <h1 class="training-title text-center">
                     Check !t.
                 </h1>
-                <div>
-                </div>
-                <div>
+                <hr>
+                <div class="training-sidebar-second-wrap">
+                    <br>
+                    <div class="training-sidebar-content sidebar-video">
+                        <span>Mes vidéos</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <br>
+                    <div class="training-sidebar-content sidebar-profils-fav">
+                        <span>Profils favoris</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <br>
+                    <div class="training-sidebar-content sidebar-spots-fave">
+                        <span>Spots favoris</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
                 </div>
             </div>
             <div class="googlemap-sidebar" id="map">
@@ -25,8 +39,30 @@
         <div class="wrap-footer">
             <div class="training-footer">
                 <div class="training-footer-start">
+                    <h3 class="correct-h3"><i class="fa fa-cogs"></i></h3>
+                    |
+                    <div class="training-user-sidebar">
+                        <span>Michael Jackson</span>
+                        <img src="img/michael-jackson.png" class="user-logo"/>
+                    </div>
+                </div>
+                <div class="training-footer-middle">
+                    
+                </div>
+                <div class="training-footer-end">
                 </div>
             </div>
         </div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4ezwzmDZy2csJYnSdVutPweizVnLxwiQ&language=fr"type="text/javascript">
+        </script>
+        <script>
+         var mapOptions = {
+             zoom: 4,
+             center: {lat: -33, lng: 151},
+             disableDefaultUI: true
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        </script>
     </body>
 </html>
