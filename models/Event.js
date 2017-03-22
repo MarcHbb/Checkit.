@@ -15,7 +15,11 @@ module.exports.createEvent = (newEvent, callback) => {
   newEvent.save(callback);
 }
 
-module.exports.getEvent = (callback) => {
+module.exports.getEventById = (id, callback) => {
+  Event.findById(id, callback);
+}
+
+module.exports.getEvents = (callback) => {
   Event.find({}, (error, results) => {
     if(error) throw error;
       callback(results);

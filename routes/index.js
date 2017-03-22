@@ -7,7 +7,7 @@ var Event = require('../models/Event');
 // Get Homepage
 router.get('/', (req, res) => {
 
-  Event.getEvent(function(evenement) {
+  Event.getEvents(function(evenement) {
 
     res.render('index', { list : evenement });
   });

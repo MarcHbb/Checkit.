@@ -13,7 +13,12 @@
           <% for (let i = 0; i < locals.list.length; i ++){ %>
           <li class="list-group-item" style="color:red;  "><%= locals.list[i].eventName %>
             <i class="fa fa-times" aria-hidden="true" style="float:right; "></i>
-            <a href="/annonce/editAnnonce"><i class="fa fa-pencil-square" aria-hidden="true" style="float:right;margin-right:4px;"></i></a>
+            <a href="/annonce/editAnnonce?event=<%= locals.list[i]._id %>">
+              <i class="fa fa-pencil-square" aria-hidden="true" style="float:right;margin-right:4px;">
+                <button class="edit-button">
+                </button>
+              </i>
+            </a>
            </li>
           <% } %>
         </ul>

@@ -13,8 +13,8 @@ function ensureAuthentificated(req, res, next) {
   }
 }
 
-router.get('/', ensureAuthentificated ,(req, res) => {
-  Event.getEvent((evenement) => {
+router.get('/' ,(req, res) => {
+  Event.getEvents((evenement) => {
 
     res.render('annonce', { list : evenement });
   });
@@ -52,20 +52,21 @@ router.post('/', (req, res) => {
 
 });
 
-router.get('/addAnnonce', ensureAuthentificated, (req,res) => {
+router.get('/addAnnonce', (req,res) => {
   res.render('addAnnonce');
 });
 
-router.get('/editAnnonce', ensureAuthentificated, (req,res) => {
-  Event.getEvent((evenement) => {
-    var name = evenement.eventName;
-    console.log(evenement);
-    res.render('editAnnonce');
+router.get('/editAnnonce', (req, res) => {
+  Event.getEventById(req.query.event, (err, e_event) => {
+
+    res.render('editAnnonce', {e_event : e_event});
   });
 });
 
-router.put('/annonce/:id', (req, res) => {
-  Event.findOneAndUpdate({ _id:req.params.id},
+
+
+router.put('/editAnnonce', (req, res) => {
+  Event.findOneAndUpdate({ _id:req.query.event},
     { $set: { eventName: req.body.eventName }},(err, newEvent) => {
     if(err) throw err;
     else {
@@ -74,6 +75,8 @@ router.put('/annonce/:id', (req, res) => {
   });
 });
 
+
+/* En cours ... fonctionne avec POSTMAN
 router.delete('/:id', (req, res) => {
   Event.findOneAndRemove({ _id:req.params.id},(err, r_event) => {
     if(err) throw err;
@@ -82,5 +85,5 @@ router.delete('/:id', (req, res) => {
     }
   });
 });
-
+ */
 module.exports = router;
