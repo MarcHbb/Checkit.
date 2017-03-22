@@ -1,3 +1,6 @@
+body {
+    overflow: hidden;
+}
 .training-sidebar {
     border: 1px solid #363736;
     background: #0B0B0E;
@@ -83,6 +86,15 @@
     cursor: pointer;
 }
 
+.training-user-sidebar {
+    color:#B1B2B0;
+}
+
+.training-user-sidebar:hover {
+    color:white;
+    cursor:pointer;
+}
+
 hr {
     width:80%;
     border-top:1px dotted #363736;
@@ -117,4 +129,43 @@ hr {
 @font-face {
     font-family: CheckIt;
     src: url('../fonts/California.ttf');
+}
+
+.training-input {
+    width: 60%;
+    height:30px;
+    border-radius: 50px;
+    background:#0B0B0E;
+    border: 3px dotted #363736;
+    color: white;
+    padding: 7%;
+    margin-bottom: 20px;
+}
+
+.training-input:focus {
+    border: 3px solid #363736;
+}
+
+.check-btn {
+    background:#0B0B0E;
+    color:white;
+    transition:.6s;
+}
+
+.check-btn:hover {
+    color:grey;
+    transition:.6s;
+}
+
+.check-btn-plus {
+    background:#151715;
+    color:#B1B2B0;
+    transition:.6s;
+    height: 55px;
+    width:70%;
+}
+
+.check-btn-plus:hover {
+    color:white;
+    transition:.6s;
 }

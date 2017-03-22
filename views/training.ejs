@@ -14,6 +14,13 @@
                 <h1 class="training-title text-center">
                     Check !t.
                 </h1>
+                <div class="text-center row">
+                    <input type="text" class="training-input" id="check-search"/>
+                    <button type="button" class="btn check-btn" onClick="setMarker()"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="text-center row training-plus-wrap">
+                    <button type="button" class="btn check-btn-plus" onClick="setMarker()"><b>Ajouter un spot </b><i class="fa fa-plus"></i></button>
+                </div>
                 <hr>
                 <div class="training-sidebar-second-wrap">
                     <br>
@@ -42,7 +49,7 @@
                     <h3 class="correct-h3"><i class="fa fa-cogs"></i></h3>
                     |
                     <div class="training-user-sidebar">
-                        <span>Michael Jackson</span>
+                        <span><b>Michael Jackson</b></span>
                         <img src="img/michael-jackson.png" class="user-logo"/>
                     </div>
                 </div>
@@ -55,14 +62,6 @@
         </div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4ezwzmDZy2csJYnSdVutPweizVnLxwiQ&language=fr"type="text/javascript">
         </script>
-        <script>
-         var mapOptions = {
-             zoom: 4,
-             center: {lat: -33, lng: 151},
-             disableDefaultUI: true
-        }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-        </script>
+        <script src="/js/mapController.js"></script>
     </body>
 </html>
