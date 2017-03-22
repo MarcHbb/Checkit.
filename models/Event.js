@@ -4,7 +4,8 @@ var EventSchema = mongoose.Schema({
   eventName : {type: String},
   category: {type: String},
   desc: {type: String},
-  versus: {type: String}
+  versus: {type: String},
+  idUser: {type: Number}
 });
 
 var Event = mongoose.model('Event', EventSchema);
@@ -20,3 +21,19 @@ module.exports.getEvent = (callback) => {
       callback(results);
     });
 }
+
+/*
+module.exports.editEvent = (id, callback) => {
+  Event.findOneAndUpdate({ _id:req.params.id},
+    { $set: { eventName: req.body.eventName }},(err, newEvent) => {
+    if(err) throw err;
+    callback(newEvent);
+  });
+}
+
+module.exports.deleteEvent = (id, callback) => {
+  Event.findOneAndRemove({ _id:req.params.id},(err, r_event) => {
+    if(err) throw err;
+  });
+}
+*/

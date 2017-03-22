@@ -1,8 +1,56 @@
 <% include shared/header.ejs %>
 
 
-<% include shared/menu.ejs %>
-
+<div class="row">
+  <div class="container jumbotron checkit-background-index">
+    <div class="header clearfix">
+      <nav class="wrap-menu">
+        <div class="check-navbar-top-item hidden-sm hidden-xs">
+          <a href="/" class="sliding-u-l-r-l">
+            <span>Evenements</span>
+          </a>
+          <a href="/" class="sliding-u-l-r-l">
+            <span>Training Spots</span>
+          </a>
+            <a href="/" class="sliding-u-l-r-l">
+              <span>Marques</span>
+            </a>
+          </div>
+          <h3 class="text-muted">
+            <a href="/">
+                CHECK !t.
+             </a>
+         </h3>
+        <div class="check-navbar-bottom-item hidden-sm hidden-xs">
+            <% if (!locals.user) { %>
+            <a href="/users/register" class="sliding-u-l-r-l">
+            <span>Inscription</span>
+            </a>
+            <a href="/users/login" class="sliding-u-l-r-l">
+              <span>Connexion</span>
+            </a>
+             <% }
+             if (locals.user) { %>
+            <a href="/annonce" class="sliding-u-l-r-l">
+              <span>Annonce</span>
+            </a>
+            <a href="/users/Logout" class="sliding-u-l-r-l">
+              <span>Se Deconnecter</span>
+            </a>
+             <% } %>
+        </div>
+      </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="typeMoment">
+    </div>
+   </div>
+  </div>
+</div>
 <% if (success_msg.length > 0){ %>
 
  <div class="alert alert-success"><%= success_msg %></div>

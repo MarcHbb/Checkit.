@@ -20,7 +20,7 @@ mongoose.connect('mongodb://user:user@ds127300.mlab.com:27300/danceco', function
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var events = require('./routes/events');
+var annonce = require('./routes/annonce');
 
 
 // Init App
@@ -80,7 +80,7 @@ app.use((req, res, next) => {
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/', events);
+app.use('/annonce', annonce);
 
 
 // Set Port

@@ -1,0 +1,27 @@
+<% include shared/header.ejs %>
+
+<% include shared/menu.ejs %>
+
+
+<form method="post" action="/annonce" class="col-lg-4 col-lg-offset-4">
+  <div class="form-group">
+    <label><%= locals.name %></label>
+    <input type="text" class="form-control" value="<%= locals.name %>" name="eventName">
+  </div>
+  <div class="form-group">
+    <label>Categorie</label>
+    <input type="text" class="form-control" placeholder="Category" name="category">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" placeholder="Description" name="desc">
+  </div>
+  <div class="form-group">
+    <label>Versus</label>
+    <input type="text" class="form-control" placeholder="2vs2, 3vs3 ..." name="versus">
+  </div><br><br>
+  <button type="submit" class="btn btn-default button">Submit</button>
+</form>
+
+
+<% include shared/footer.ejs %>

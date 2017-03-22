@@ -1,5 +1,6 @@
 body {
   background-color: #0E0F0E;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -80,12 +81,24 @@ hr {
 }
 
 
-.checkit-background {
+.checkit-background-index {
   background-image: url('../img/backgroundMan.png');
   background-color: black;
   background-size: 100%;
   width: 100vw;
   height: 80vh;
+  background-repeat: no-repeat;
+  animation: blurMe;
+  animation-duration: .7s;
+  border-bottom: white;
+}
+
+.checkit-background {
+  background-image: url('../img/backgroundMan.png');
+  background-color: black;
+  background-size: 100%;
+  width: 100vw;
+  height: 20vh;
   background-repeat: no-repeat;
   animation: blurMe;
   animation-duration: .7s;
@@ -299,3 +312,63 @@ hr {
 }
 
 /* END ANIMATION */
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  background-color: #0E0F0E;
+  color:white;
+  width:6vw;
+  margin: auto;
+  transition: 0.3s;
+
+}
+
+.add-button {
+  float: right;
+  margin: 0 0 10px 10px;
+  background-color: #0E0F0E;
+  color:white;
+  width:5vw;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.add-button:hover {
+  background-color:white
+  color: #0E0F0E;
+  transition: 0.3s;
+}
+
+
+.button:hover {
+  background-color:white
+  color: #0E0F0E;
+  width:8vw;
+  transition: 0.3s;
+}
+
+.alert {
+  margin:10px auto;
+  width:30vw;
+  height:5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.wrap-errors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+a
+{
+text-decoration: none;
+}
