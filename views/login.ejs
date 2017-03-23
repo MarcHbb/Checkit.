@@ -3,34 +3,43 @@
 <% include shared/menu.ejs %>
 
 
+<div class="row text-center">
+    <h1>Connexion</h1>
+    <hr>
+</div>
 
 
-
-
-<h2 class="page-header title">Account Login</h2>
 
 <% if (error. length > 0) { %>
 
-<form method="post" action="/users/login" class="col-lg-4 col-lg-offset-4 form">
-  <div class="form-group has-error">
-    <label>Username</label>
-    <input type="text" class="form-control" name="username" placeholder="Username">
-  </div>
-  <div class="form-group has-error">
-    <label>Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-default button">Connect</button>
-  <div class="error">
-    <%= error %>
-  </div>
+  <form method="post" action="/users/login" class="col-lg-4 col-lg-offset-4 form">
+    <div class="form-group has-error">
+      <label>Username</label>
+      <input type="text" class="form-control" name="username" placeholder="Username">
+    </div>
+    <div class="form-group has-error">
+      <label>Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
 
-</form>
+    <button type="submit" class="btn btn-default button">Connect</button>
+    <div class="error">
+      <%= error %>
+    </div>
+
+  </form>
 
 
 
 <% } else { %>
+  <% if(locals.success){ %>
+
+  <% } %>
+
   <form method="post" action="/users/login" class="col-lg-4 col-lg-offset-4 form">
+      <% if(locals.success){ %>
+        <span class="success-msg"><%= success %></span><br> 
+      <% } %>
     <div class="form-group">
       <label>Username</label>
       <input type="text" class="form-control" name="username" placeholder="Username">

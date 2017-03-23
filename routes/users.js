@@ -6,6 +6,7 @@ const express       = require('express'),
 
 var User = require('../models/User');
 
+
 // Register
 router.get('/register', (req, res) => {
   res.render('register');
@@ -13,7 +14,7 @@ router.get('/register', (req, res) => {
 
 // Login
 router.get('/login', (req, res) => {
-  res.render('login', {msg: req.flash('success') });
+  res.render('login');
   });
 
 // Register User
@@ -54,14 +55,13 @@ router.post('/register', (req, res) => {
       User.getUserByUsername(newUser.username, (err, user) => {
           if(err) throw err;
           if(user) {
-              res.render('register', { message : 'mabite'});
+              res.render('register', { alrdyExist : 'Username already exist'});
           } else {
               User.createUser(newUser, (err, user) => {
-                  if(err) throw err;
-              });
+                if(err) throw err;
 
-              req.flash('success', 'You are registered and can now login');
-              res.redirect('/users/login');
+                res.render('login' , { success : 'You have been registered, you can now log in'});
+            });
           }
       });
 
@@ -92,7 +92,6 @@ passport.use(new LocalStrategy(
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
-
 passport.deserializeUser((id, done) => {
   User.getUserById(id, (err, user) => {
     done(err, user);
@@ -107,7 +106,6 @@ router.post('/login',
 
 router.get('/logout', (req, res) => {
   req.logout();
-  req.flash('success_msg', 'You are logged out');
   res.redirect('/');
 });
 

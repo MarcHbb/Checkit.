@@ -13,13 +13,22 @@ function ensureAuthentificated(req, res, next) {
   }
 }
 
-router.get('/', ensureAuthentificated ,(req, res) => {
+router.get('/' ,(req, res) => {
   Event.getEvents((evenement) => {
 
-    res.render('annonce', { list : evenement });
+  res.render('annonce', { list : evenement });
   });
 });
-router.post('/', ensureAuthentificated, (req, res) => {
+router.get('/addAnnonce',  (req,res) => {
+  res.render('addAnnonce');
+});
+router.get('/editAnnonce/:id',  (req, res) => {
+  Event.getEventById(req.params.id, (err, e_event) => {
+    res.render('editAnnonce', {e_event : e_event});
+  });
+});
+
+router.post('/addAnnonce', (req, res) => {
   var eventName  = req.body.eventName,
       category   = req.body.category,
       desc       = req.body.desc,
@@ -32,11 +41,28 @@ router.post('/', ensureAuthentificated, (req, res) => {
     req.checkBody('desc', 'Description is required').notEmpty();
     req.checkBody('versus', 'Versus is required').notEmpty();
 
-
     var errors = req.validationErrors();
 
     if(errors){
-      res.render('annonce', { errors : errors });
+      var errEventName;
+      var errCategory;
+      var errDesc;
+      var errVersus;
+
+      for(let i=0; i< errors.length; i++){
+        if(errors[i].param == "eventName"){
+          errEventName = 'Name of the event is required';
+        } else if(errors[i].param == "category"){
+          errCategory = 'Category is required';
+        } else if(errors[i].param == "desc"){
+          errDesc = 'Description is required';
+        } else if(errors[i].param == "versus"){
+          errVersus = 'Versus is required';
+        }
+      }
+
+      res.render('addAnnonce', { errEventName : errEventName, errCategory : errCategory, errDesc: errDesc, errVersus: errVersus });
+
     } else {
       var newEvent = new Event({
         eventName: eventName,
@@ -51,39 +77,18 @@ router.post('/', ensureAuthentificated, (req, res) => {
     }
 
 });
-
-router.get('/addAnnonce', ensureAuthentificated,  (req,res) => {
-  res.render('addAnnonce');
-});
-
-router.get('/editAnnonce', ensureAuthentificated,  (req, res) => {
-  Event.getEventById(req.query.event, (err, e_event) => {
-
-    res.render('editAnnonce', {e_event : e_event});
-  });
-});
-
-
-
-/*router.put('/', (req, res) => {
+router.post('/edit', (req, res) => {
   Event.findOneAndUpdate({ _id:req.body.id},
     { $set: { eventName: req.body.eventName }},(err, newEvent) => {
     if(err) throw err;
-    else {
-    console.log(newEvent);
-    }
-  });
-});*/
-
-
-/* En cours ... fonctionne avec POSTMAN
-router.delete('/:id', (req, res) => {
-  Event.findOneAndRemove({ _id:req.params.id},(err, r_event) => {
-    if(err) throw err;
-    else {
-    console.log(r_event);
-    }
+    res.redirect('/annonce');
   });
 });
- */
+router.post('/delete', (req, res) => {
+  Event.findOneAndRemove({ _id:req.body.id},(err, r_event) => {
+    if(err) throw err;
+    res.redirect('/annonce');
+  });
+});
+
 module.exports = router;

@@ -2,37 +2,36 @@
 
 <% include shared/menu.ejs %>
 
-<div class="wrap-errors">
 
-  <% if(locals.errors) {
-    errors.forEach(function(err) { %>
-      <div class="alert alert-danger">
-        <%= err.msg %>
-      </div>
-    <% });
-  } %>
-</div>
-
-<br><br>
-
-<form method="post" action="/annonce" class="col-lg-4 col-lg-offset-4">
+<form method="post" action="/annonce/addAnnonce" class="col-lg-4 col-lg-offset-4 form <% if(locals.errUser){ %> has-error <% } %>">
   <div class="form-group">
     <label>Nom de l'évènement</label>
     <input type="text" class="form-control" placeholder="Name" name="eventName">
+    <% if(locals.errEventName){  %>
+      <span style="color:red;"><%= errEventName %></span>
+    <% } %>
   </div>
   <div class="form-group">
     <label>Categorie</label>
     <input type="text" class="form-control" placeholder="Category" name="category">
+    <% if(locals.errCategory){  %>
+      <span style="color:red;"><%= errCategory %></span>
+    <% } %>
   </div>
   <div class="form-group">
     <label>Versus</label>
     <input type="text" class="form-control" placeholder="2vs2, 3vs3 ..." name="versus">
+    <% if(locals.errVersus){  %>
+      <span style="color:red;"><%= errVersus %></span>
+    <% } %>
   </div>
   <div class="form-group">
     <label>Description</label>
     <textarea type="text" class="form-control" rows="3" name="desc"></textarea>
+    <% if(locals.errDesc){  %>
+      <span style="color:red;"><%= errDesc %></span>
+    <% } %>
   </div>
-  <br><br>
   <button type="submit" class="btn btn-default button">Submit</button>
 </form>
 

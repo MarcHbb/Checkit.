@@ -339,9 +339,13 @@ form {
 
 }
 
+.success-msg {
+  color:#5cb85c;
+  margin: auto;
+}
+
 .add-button {
-  float: right;
-  margin: 0 0 10px 10px;
+  float: left;
   background-color: #0E0F0E;
   color:white;
   width:5vw;

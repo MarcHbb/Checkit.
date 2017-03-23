@@ -5,7 +5,7 @@ var EventSchema = mongoose.Schema({
   category: {type: String},
   desc: {type: String},
   versus: {type: String},
-  idUser: {type: Number}
+  idUser: {type: String}
 });
 
 var Event = mongoose.model('Event', EventSchema);

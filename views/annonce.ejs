@@ -1,27 +1,25 @@
 <% include shared/header.ejs %>
 <% include shared/menu.ejs %>
 
-<div class="row events-row">
-    <div class="row text-center">
-        <a href="/annonce/addAnnonce">
-          <button type="button" class="add-button btn btn-default">Add</button>
-        </a>
-        <h1>Vos annonces</h1>
-        <hr>
-    </div>
-        <ul class="list-group col-lg-4 col-lg-offset-4">
-          <% for (let i = 0; i < locals.list.length; i ++){ %>
-          <li class="list-group-item" style="color:red;  "><%= locals.list[i].eventName %>
-            <i class="fa fa-times" aria-hidden="true" style="float:right; "></i>
-            <a href="/annonce/editAnnonce?event=<%= locals.list[i]._id %>">
-              <i class="fa fa-pencil-square" aria-hidden="true" style="float:right;margin-right:4px;">
-                <button class="edit-button">
-                </button>
-              </i>
-            </a>
-           </li>
-          <% } %>
-        </ul>
-
-
+<div class="row text-center">
+  <h1>Vos annonces</h1>
+  <hr>
 </div>
+<div class="row events-row">
+  <ul class="list-group col-lg-4 col-lg-offset-4">
+    <% for (let i = 0; i < locals.list.length; i ++){ %>
+    <li class="list-group-item" style="color:red;  "><%= locals.list[i].eventName %>
+      <a href="/annonce/editAnnonce/<%= locals.list[i]._id %>">
+        <i class="fa fa-pencil-square" aria-hidden="true" style="float:right;margin-right:4px;">
+          <button class="edit-button"></button>
+        </i>
+      </a>
+     </li>
+    <% } %>
+  </ul>
+</div>
+
+
+<a href="/annonce/addAnnonce">
+  <button type="button" class="add-button btn btn-default" style="margin-left:47%;">Add</button>
+</a>

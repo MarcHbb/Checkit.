@@ -3,7 +3,6 @@ const express = require('express'),
 
 var Event = require('../models/Event');
 
-
 // Get Homepage
 router.get('/', (req, res) => {
 
@@ -12,6 +11,7 @@ router.get('/', (req, res) => {
     res.render('index', { list : evenement });
   });
 });
+
 
 router.get('/training', (req,res) => {
   res.render('training');

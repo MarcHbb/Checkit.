@@ -22,13 +22,12 @@
   </div>
   <input type="hidden" value="<%= locals.e_event.id %>" name="id"/>
   <br><br>
-  <button type="submit" class="btn btn-default button">Submit</button>
+  <button type="submit" name="a" class="btn btn-default button">Submit</button><br>
 </form>
 
-<form method="post" action="/annonce/delete" class="col-lg-4 col-lg-offset-4" action="annonce/delete" >
+<form method="post" action="/annonce/delete" class="col-lg-4 col-lg-offset-4">
   <input type="hidden" value="<%= locals.e_event.id %>" name="id"/>
-
-  <button type="submit" class="btn btn-default button">Delete</button>
+  <button class="danger-button btn btn-default" type="sumbit">Delete</button>
 </form>
 
 

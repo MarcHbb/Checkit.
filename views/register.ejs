@@ -2,17 +2,19 @@
 
 <% include shared/menu.ejs %>
 
-<h2 class="page-header title">Register</h2>
-
-
-
+<div class="row text-center">
+    <h1>Inscription</h1>
+    <hr>
+</div>
 
 <form method="post" action="/users/register" class="col-lg-4 col-lg-offset-4 form <% if(locals.errUser){ %> has-error <% } %>">
   <div class="form-group">
     <label>Username</label>
-    <input type="text" class="form-control <% if(locals.errUser){ %> error <% } %>" name="username">
+    <input type="text" class="form-control" name="username">
     <% if(locals.errUser){  %>
       <span style="color:red;"><%= errUser %></span>
+    <% } else if(locals.alrdyExist){  %>
+      <span style="color:red;"><%= alrdyExist %></span>
     <% } %>
   </div>
   <div class="form-group">
@@ -24,10 +26,11 @@
   </div>
   <div class="form-group">
     <label>Confirm Password</label>
-    <input type="password" class="form-control"  name="password2">
-    <% if(locals.errMatch){  %>
-      <span style="color:red;"><%= errUser %></span>
-    <% } %>
+      <input type="password" class="form-control" style="width:100%;" name="password2">
+      <% if(locals.errMatch){  %>
+        <span style="color:red;"><%= errMatch %></span>
+      <% } %>
+
   </div>
   <button type="submit" class="btn btn-default button">Submit</button>
 
