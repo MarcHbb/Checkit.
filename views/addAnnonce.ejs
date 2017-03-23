@@ -1,0 +1,40 @@
+<% include shared/header.ejs %>
+
+<% include shared/menu.ejs %>
+
+<div class="wrap-errors">
+
+  <% if(locals.errors) {
+    errors.forEach(function(err) { %>
+      <div class="alert alert-danger">
+        <%= err.msg %>
+      </div>
+    <% });
+  } %>
+</div>
+
+<br><br>
+
+<form method="post" action="/annonce" class="col-lg-4 col-lg-offset-4">
+  <div class="form-group">
+    <label>Nom de l'évènement</label>
+    <input type="text" class="form-control" placeholder="Name" name="eventName">
+  </div>
+  <div class="form-group">
+    <label>Categorie</label>
+    <input type="text" class="form-control" placeholder="Category" name="category">
+  </div>
+  <div class="form-group">
+    <label>Versus</label>
+    <input type="text" class="form-control" placeholder="2vs2, 3vs3 ..." name="versus">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea type="text" class="form-control" rows="3" name="desc"></textarea>
+  </div>
+  <br><br>
+  <button type="submit" class="btn btn-default button">Submit</button>
+</form>
+
+
+<% include shared/footer.ejs %>

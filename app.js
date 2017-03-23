@@ -12,7 +12,7 @@ const express           = require('express'),
       port              = process.env.PORT || '9800';
 var   db;
 
-mongoose.connect('mongodb://checkit:Billgates1@ds127300.mlab.com:27300/danceco', function(err) {
+mongoose.connect('mongodb://user:user@ds127300.mlab.com:27300/danceco', function(err) {
   if(err) return;
   db = mongoose.connection;
 });
@@ -20,7 +20,7 @@ mongoose.connect('mongodb://checkit:Billgates1@ds127300.mlab.com:27300/danceco',
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var events = require('./routes/events');
+var annonce = require('./routes/annonce');
 
 
 // Init App
@@ -80,7 +80,7 @@ app.use((req, res, next) => {
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/', events);
+app.use('/annonce', annonce);
 
 
 // Set Port

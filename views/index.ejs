@@ -1,8 +1,56 @@
 <% include shared/header.ejs %>
 
 
-<% include shared/menu.ejs %>
-
+<div class="row">
+  <div class="container jumbotron checkit-background-index">
+    <div class="header clearfix">
+      <nav class="wrap-menu">
+        <div class="check-navbar-top-item hidden-sm hidden-xs">
+          <a href="/" class="sliding-u-l-r-l">
+            <span>Evenements</span>
+          </a>
+          <a href="/" class="sliding-u-l-r-l">
+            <span>Training Spots</span>
+          </a>
+            <a href="/" class="sliding-u-l-r-l">
+              <span>Marques</span>
+            </a>
+          </div>
+          <h3 class="text-muted">
+            <a href="/">
+                CHECK !t.
+             </a>
+         </h3>
+        <div class="check-navbar-bottom-item hidden-sm hidden-xs">
+            <% if (!locals.user) { %>
+            <a href="/users/register" class="sliding-u-l-r-l">
+            <span>Inscription</span>
+            </a>
+            <a href="/users/login" class="sliding-u-l-r-l">
+              <span>Connexion</span>
+            </a>
+             <% }
+             if (locals.user) { %>
+            <a href="/annonce" class="sliding-u-l-r-l">
+              <span>Annonce</span>
+            </a>
+            <a href="/users/Logout" class="sliding-u-l-r-l">
+              <span>Se Deconnecter</span>
+            </a>
+             <% } %>
+        </div>
+      </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="typeMoment">
+    </div>
+   </div>
+  </div>
+</div>
 <% if (success_msg.length > 0){ %>
 
  <div class="alert alert-success"><%= success_msg %></div>
@@ -15,12 +63,20 @@
         <hr>
     </div>
     <div class="row">
+
+      <% for (let i = 0; i < locals.list.length; i++){ %>
+
         <div class="col-lg-4 col-md-4 col-sm-4 check-events-card">
             <div class="check-header-card ex1 text-center">
-                <h3 class="check-card-title">Who iz Who</h3>
             </div>
             <div class="check-card-content">
-                <span>Blah blah blha bdebzudoe cebzou jdeizfj fhuzeohf efj ezuofh eozfezhfouezhdeoz fehouz</span>
+              <h3 class="check-card-title text-center">
+                <%= locals.list[i].eventName %>
+              </h3>
+              <h4 class="check-card-title text-center">
+                [<%= locals.list[i].category %>] - [<%= locals.list[i].versus %>]
+              </h4>
+                <span><%= locals.list[i].desc %> </span>
                 <div class="row text-center">
                     <button type="button" class="check-button">Check !t.</button>
                     <a href="" class="check-card-icon">
@@ -34,6 +90,9 @@
                 </div>
             </div>
         </div>
+
+      <% } %>
+
     </div>
 </div>
 <div class="row training-row">
@@ -57,7 +116,7 @@
 
 </div>
 <div class="row brands-row">
-    
+
 </div>
 
 <% include shared/footer.ejs %>

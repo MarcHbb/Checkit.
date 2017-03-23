@@ -34,7 +34,7 @@ router.post('/register', (req, res) => {
   } else {
       var newUser = new User({
           username: username,
-            password: password
+          password: password
       });
 
       User.getUserByUsername(newUser.username, (err, user) => {
@@ -90,8 +90,6 @@ router.post('/login',
   (req, res) => {
     res.redirect('/');
   });
-
-
 
 router.get('/logout', (req, res) => {
   req.logout();
