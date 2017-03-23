@@ -25,3 +25,23 @@ function setMarker() {
     }
   });
 }
+
+function checkValidityToAddSpot() {
+    var address = document.getElementById('addressAddSpot').value;
+    var btn = document.getElementById('training-add-spot');
+
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      btn.style.display = "flex";
+      var marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location
+      });
+    } else {
+      alert("Veuillez entrer une addresse valide.");
+      btn.style.display = "none";
+    }
+  });
+}

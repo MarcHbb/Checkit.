@@ -19,7 +19,7 @@
                     <button type="button" class="btn check-btn" onClick="setMarker()"><i class="fa fa-search"></i></button>
                 </div>
                 <div class="text-center row training-plus-wrap">
-                    <button type="button" class="btn check-btn-plus" onClick="setMarker()"><b>Ajouter un spot </b><i class="fa fa-plus"></i></button>
+                <button type="button" class="btn check-btn-plus" data-toggle="modal" data-target="#addSpot"><b>Ajouter un spot </b><i class="fa fa-plus"></i></button>
                 </div>
                 <hr>
                 <div class="training-sidebar-second-wrap">
@@ -60,6 +60,51 @@
                 </div>
             </div>
         </div>
+        <!-- START MODAL -->
+        <div class="modal fade" id="addSpot" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content training-modal">
+                    <div class="modal-header">
+                        <button type="button" class="close training-close" data-dismiss="modal">
+                            &times;
+                        </button>
+                        <h4 class="modal-title">
+                            Ajoutes un spot !
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="POST" role="form">
+                            <div class="form-group">
+                                <label for="">Nom du spot</label>
+                                <input type="text" class="form-control" id="" placeholder="ex: Spot de ouf">
+                                <br>
+                                <label for="">Addresse</label>
+                                <input type="text" class="form-control" id="addressAddSpot" placeholder="ex: 14 avenue des champs">
+                                <button type="button" class="btn btn-default check-btn" onClick="checkValidityToAddSpot()">Valide ?</button>
+                                <br>
+                                <label for="">Choisis une image</label>
+                                <select>
+                                    <option value="first">Locking</option>
+                                    <option value="second">HipHop</option>
+                                    <option value="third">House</option>
+                                    <option value="fourth">Popping</option>
+                                    <option value="fourth">B-Boying</option>
+                                </select>
+                            </div>
+                            <button type="submit" id="training-add-spot" class="btn check-btn-plus-modal">
+                                Ajouter
+                            </button>
+                            <button type="button" class="btn btn-default check-btn" data-dismiss="modal">
+                                Close
+                            </button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    <!--END  MODAL PART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4ezwzmDZy2csJYnSdVutPweizVnLxwiQ&language=fr"type="text/javascript">
         </script>
         <script src="/js/mapController.js"></script>

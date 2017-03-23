@@ -144,6 +144,7 @@ hr {
 
 .training-input:focus {
     border: 3px solid #363736;
+    box-shadow:none;
 }
 
 .check-btn {
@@ -168,4 +169,35 @@ hr {
 .check-btn-plus:hover {
     color:white;
     transition:.6s;
+}
+
+.training-modal {
+    background: #0B0B0D;
+}
+
+.modal-header {
+    color:white;
+    font-family: CheckIt;
+    border-bottom:0px solid transparent;
+}
+
+.training-close {
+    color: #B1B2B0;
+}
+
+.training-close:hover {
+    color: white;
+}
+
+.check-btn-plus-modal {
+    background:#151715;
+    color:white;
+    border: 1px solid #B1B2B0;
+    transition:.6s;
+    height: 35px;
+    width:20%;
+}
+
+#training-add-spot {
+    display: none;
 }
