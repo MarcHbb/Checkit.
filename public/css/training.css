@@ -1,0 +1,203 @@
+body {
+    overflow: hidden;
+}
+.training-sidebar {
+    border: 1px solid #363736;
+    background: #0B0B0E;
+    width: 20%;
+    height: 100%;
+}
+
+.googlemap-sidebar {
+    border: 1px solid black;
+    width: 80%;
+    height: 100%;
+}
+
+.wrap-panel {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 92vh;
+}
+
+.wrap-footer {
+    height: 8vh;
+}
+
+.training-footer {
+    display: flex;
+    height: 100%;
+    background: #0B0B0E;
+}
+
+.training-footer-start {
+    border: 1px solid #363736;
+    width: 20%;
+    background: #151715;
+    height: 8vh;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.training-footer-middle {
+    border: 1px solid #363736;
+    width: 60%;
+    background: #0B0B0E;
+    height: 8vh;
+}
+
+.training-footer-end {
+    border: 1px solid #363736;
+    width: 20%;
+    background: #151715;
+    height: 8vh;
+}
+
+.training-title {
+    font-family: CheckIt;
+    height:10%;
+}
+
+.training-sidebar-second-wrap {
+    margin: 7.5%;
+    width: 85%;
+    height: 80%;
+}
+
+.training-sidebar-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    height: 55px;
+    background: #151715;
+    border-radius: 5px;
+    color: #B1B2B0;
+    transition: .7s;
+}
+
+.training-sidebar-content:hover {
+    color: white;
+    transition:.7s;
+    cursor: pointer;
+}
+
+.training-user-sidebar {
+    color:#B1B2B0;
+}
+
+.training-user-sidebar:hover {
+    color:white;
+    cursor:pointer;
+}
+
+hr {
+    width:80%;
+    border-top:1px dotted #363736;
+}
+
+.settings-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 4px;
+    border-right: 1px dotted grey;
+}
+
+.user-logo {
+    width:35px;
+    border-radius:100%;
+    height:35px;
+}
+
+.correct-h3 {
+    margin:0;
+    color: #B1B2B0;
+    transition: .7s;
+}
+
+.correct-h3:hover {
+    color:white;
+    transition: .7s;
+    cursor:pointer;
+}
+
+
+@font-face {
+    font-family: CheckIt;
+    src: url('../fonts/California.ttf');
+}
+
+.training-input {
+    width: 60%;
+    height:30px;
+    border-radius: 50px;
+    background:#0B0B0E;
+    border: 3px dotted #363736;
+    color: white;
+    padding: 7%;
+    margin-bottom: 20px;
+}
+
+.training-input:focus {
+    border: 3px solid #363736;
+    box-shadow:none;
+}
+
+.check-btn {
+    background:#0B0B0E;
+    color:white;
+    transition:.6s;
+}
+
+.check-btn:hover {
+    color:grey;
+    transition:.6s;
+}
+
+.check-btn-plus {
+    background:#151715;
+    color:#B1B2B0;
+    transition:.6s;
+    height: 55px;
+    width:70%;
+}
+
+.check-btn-plus:hover {
+    color:white;
+    transition:.6s;
+}
+
+.training-modal {
+    background: #0B0B0D;
+}
+
+.modal-header {
+    color:white;
+    font-family: CheckIt;
+    border-bottom:0px solid transparent;
+}
+
+.training-close {
+    color: #B1B2B0;
+}
+
+.training-close:hover {
+    color: white;
+}
+
+.check-btn-plus-modal {
+    background:#151715;
+    color:white;
+    border: 1px solid #B1B2B0;
+    transition:.6s;
+    height: 35px;
+    width:20%;
+}
+
+#training-add-spot {
+    display: none;
+}

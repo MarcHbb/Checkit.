@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Check !t.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/training.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="wrap-panel">
+            <div class="training-sidebar">
+                <h1 class="training-title text-center">
+                    Check !t.
+                </h1>
+                <div class="text-center row">
+                    <input type="text" class="training-input" id="check-search"/>
+                    <button type="button" class="btn check-btn" onClick="setMarker()"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="text-center row training-plus-wrap">
+                <button type="button" class="btn check-btn-plus" data-toggle="modal" data-target="#addSpot"><b>Ajouter un spot </b><i class="fa fa-plus"></i></button>
+                </div>
+                <hr>
+                <div class="training-sidebar-second-wrap">
+                    <br>
+                    <div class="training-sidebar-content sidebar-video">
+                        <span><b>Mes vidéos</b></span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <br>
+                    <div class="training-sidebar-content sidebar-profils-fav">
+                        <span><b>Profils favoris</b></span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <br>
+                    <div class="training-sidebar-content sidebar-spots-fave">
+                        <span><b>Spots favoris</b></span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="googlemap-sidebar" id="map">
+            </div>
+        </div>
+        <div class="wrap-footer">
+            <div class="training-footer">
+                <div class="training-footer-start">
+                    <h3 class="correct-h3"><i class="fa fa-cogs"></i></h3>
+                    |
+                    <div class="training-user-sidebar">
+                        <span><b>Michael Jackson</b></span>
+                        <img src="img/michael-jackson.png" class="user-logo"/>
+                    </div>
+                </div>
+                <div class="training-footer-middle">
+
+                </div>
+                <div class="training-footer-end">
+                </div>
+            </div>
+        </div>
+        <!-- START MODAL -->
+        <div class="modal fade" id="addSpot" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content training-modal">
+                    <div class="modal-header">
+                        <button type="button" class="close training-close" data-dismiss="modal">
+                            &times;
+                        </button>
+                        <h4 class="modal-title">
+                            Ajoutes un spot !
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="POST" role="form">
+                            <div class="form-group">
+                                <label for="">Nom du spot</label>
+                                <input type="text" class="form-control" id="" placeholder="ex: Spot de ouf">
+                                <br>
+                                <label for="">Addresse</label>
+                                <input type="text" class="form-control" id="addressAddSpot" placeholder="ex: 14 avenue des champs">
+                                <br>
+                                <button type="button" class="btn btn-default check-btn" onClick="checkValidityToAddSpot()">Valide ?</button>
+                                <br>
+                                <label for="">Choisis une image</label>
+                                <select>
+                                    <option value="first">Locking</option>
+                                    <option value="second">HipHop</option>
+                                    <option value="third">House</option>
+                                    <option value="fourth">Popping</option>
+                                    <option value="fourth">B-Boying</option>
+                                </select>
+                            </div>
+                            <button type="submit" id="training-add-spot" class="btn check-btn-plus-modal">
+                                Ajouter
+                            </button>
+                            <button type="button" class="btn btn-default check-btn" data-dismiss="modal">
+                                Close
+                            </button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <!--END  MODAL PART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4ezwzmDZy2csJYnSdVutPweizVnLxwiQ&language=fr"type="text/javascript">
+        </script>
+        <script src="/js/mapController.js"></script>
+    </body>
+</html>
