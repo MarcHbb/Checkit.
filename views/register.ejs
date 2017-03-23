@@ -2,34 +2,35 @@
 
 <% include shared/menu.ejs %>
 
+<h2 class="page-header title">Register</h2>
 
-<% if(locals.errors) {
 
-  errors.forEach(function(err) { %>
-    <div class="alert alert-danger"> <%= err.msg %> </div>
-  <% });
 
-}
 
-if (locals.message) { %>
-  <div class="alert alert-danger"> <%= message %> </div>
-<% } %>
-
-<h2 class="page-header">Register</h2>
-<form method="post" action="/users/register">
+<form method="post" action="/users/register" class="col-lg-4 col-lg-offset-4 form <% if(locals.errUser){ %> has-error <% } %>">
   <div class="form-group">
     <label>Username</label>
-    <input type="text" class="form-control" placeholder="Username" name="username">
+    <input type="text" class="form-control <% if(locals.errUser){ %> error <% } %>" name="username">
+    <% if(locals.errUser){  %>
+      <span style="color:red;"><%= errUser %></span>
+    <% } %>
   </div>
   <div class="form-group">
     <label>Password</label>
-    <input type="password" class="form-control" placeholder="Password" name="password">
+    <input type="password" class="form-control"  name="password">
+    <% if(locals.errPassword){  %>
+      <span style="color:red;"><%= errPassword %></span>
+    <% } %>
   </div>
   <div class="form-group">
     <label>Confirm Password</label>
-    <input type="password" class="form-control" placeholder="Password" name="password2">
+    <input type="password" class="form-control"  name="password2">
+    <% if(locals.errMatch){  %>
+      <span style="color:red;"><%= errUser %></span>
+    <% } %>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+  <button type="submit" class="btn btn-default button">Submit</button>
+
+
 
 <% include shared/footer.ejs %>

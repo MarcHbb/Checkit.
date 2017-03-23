@@ -30,7 +30,21 @@ router.post('/register', (req, res) => {
   var errors = req.validationErrors();
 
   if(errors){
-      res.render('register', { errors : errors });
+    var errUser;
+    var errPassword;
+    var errMatch;
+
+    for(let i=0; i< errors.length; i++){
+      if(errors[i].param == "username"){
+        errUser = 'Username is required';
+      } else if(errors[i].param == "password"){
+        errPassword = 'Password is required';
+      } else if(errors[i].param == "password2"){
+        errMatch = 'Passwords do not match';
+      }
+    }
+
+    res.render('register', { errUser : errUser, errPassword : errPassword, errMatch: errMatch });
   } else {
       var newUser = new User({
           username: username,

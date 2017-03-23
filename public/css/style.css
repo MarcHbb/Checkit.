@@ -80,6 +80,15 @@ hr {
   margin-top: 0;
 }
 
+.title {
+  width:20%;
+  margin-left: 20%;
+}
+
+.form {
+  margin-top: 1%;
+}
+
 
 .checkit-background-index {
   background-image: url('../img/backgroundMan.png');
@@ -354,18 +363,26 @@ form {
 
 .alert {
   margin:10px auto;
-  width:30vw;
+  width:15vw;
   height:5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
+
+}
+
+.error {
+  color:red;
+  text-align: center;
+  margin-top: 2%;
 }
 
 .wrap-errors {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.form-group {
+  width:100%;
 }
 
 a

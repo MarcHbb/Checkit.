@@ -3,7 +3,7 @@
 <% include shared/menu.ejs %>
 
 
-<form method="post" action="/annonce" class="col-lg-4 col-lg-offset-4">
+<form method="put" action="/annonce" class="col-lg-4 col-lg-offset-4">
   <div class="form-group">
     <label>Name</label>
     <input type="text" class="form-control" value="<%= locals.e_event.eventName %>"  name="eventName">
@@ -20,6 +20,7 @@
     <label>Description</label>
     <textarea type="text" class="form-control" rows="3" name="desc"><%= locals.e_event.desc %></textarea>
   </div>
+  <input type="hidden" value="<%= locals.e_event.id %>" name="id"/>
   <br><br>
   <button type="submit" class="btn btn-default button">Submit</button>
 </form>

@@ -13,13 +13,13 @@ function ensureAuthentificated(req, res, next) {
   }
 }
 
-router.get('/' ,(req, res) => {
+router.get('/', ensureAuthentificated ,(req, res) => {
   Event.getEvents((evenement) => {
 
     res.render('annonce', { list : evenement });
   });
 });
-router.post('/', (req, res) => {
+router.post('/', ensureAuthentificated, (req, res) => {
   var eventName  = req.body.eventName,
       category   = req.body.category,
       desc       = req.body.desc,
@@ -52,11 +52,11 @@ router.post('/', (req, res) => {
 
 });
 
-router.get('/addAnnonce', (req,res) => {
+router.get('/addAnnonce', ensureAuthentificated,  (req,res) => {
   res.render('addAnnonce');
 });
 
-router.get('/editAnnonce', (req, res) => {
+router.get('/editAnnonce', ensureAuthentificated,  (req, res) => {
   Event.getEventById(req.query.event, (err, e_event) => {
 
     res.render('editAnnonce', {e_event : e_event});
@@ -65,15 +65,15 @@ router.get('/editAnnonce', (req, res) => {
 
 
 
-router.put('/editAnnonce', (req, res) => {
-  Event.findOneAndUpdate({ _id:req.query.event},
+/*router.put('/', (req, res) => {
+  Event.findOneAndUpdate({ _id:req.body.id},
     { $set: { eventName: req.body.eventName }},(err, newEvent) => {
     if(err) throw err;
     else {
     console.log(newEvent);
     }
   });
-});
+});*/
 
 
 /* En cours ... fonctionne avec POSTMAN
