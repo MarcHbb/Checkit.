@@ -43,6 +43,10 @@ body {
 }
 
 .training-footer-middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     border: 1px solid #363736;
     width: 60%;
     background: #0B0B0E;

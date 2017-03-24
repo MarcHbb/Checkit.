@@ -81,3 +81,17 @@ function initAllGroups(address, name, img) {
     }
   });
 }
+
+function centerMap(event) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({'address': event.srcElement.getAttribute('data-address')}, function(results, status) {
+  map.setCenter(results[0].geometry.location);
+  if (status === google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+    }
+  });
+}
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});

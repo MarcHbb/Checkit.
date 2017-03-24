@@ -9,3 +9,7 @@ $(window).scroll(function() {
     mn.removeClass(mns);
   }
 });
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
