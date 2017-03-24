@@ -1,7 +1,8 @@
 const express = require('express'),
       router  = express.Router();
 
-var Event = require('../models/Event');
+var Event         = require('../models/Event'),
+    TrainingSpots = require('../models/TrainingSpots');
 
 // Get Homepage
 router.get('/', (req, res) => {
@@ -12,9 +13,11 @@ router.get('/', (req, res) => {
   });
 });
 
-
-router.get('/training', (req,res) => {
-  res.render('training');
+router.get('/training', (req, res) => {
+  TrainingSpots.getSpots(function(result) {
+    console.log(result);
+    res.render('training', {list: result});
+  });
 });
 
 module.exports = router;
