@@ -13,16 +13,16 @@ function ensureAuthentificated(req, res, next) {
   }
 }
 
-router.get('/' ,(req, res) => {
+router.get('/',ensureAuthentificated ,(req, res) => {
   Event.getEvents((evenement) => {
 
   res.render('annonce', { list : evenement });
   });
 });
-router.get('/addAnnonce',  (req,res) => {
+router.get('/addAnnonce',ensureAuthentificated,  (req,res) => {
   res.render('addAnnonce');
 });
-router.get('/editAnnonce/:id',  (req, res) => {
+router.get('/editAnnonce/:id', ensureAuthentificated,  (req, res) => {
   Event.getEventById(req.params.id, (err, e_event) => {
     res.render('editAnnonce', {e_event : e_event});
   });
