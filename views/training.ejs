@@ -54,7 +54,6 @@
                     </div>
                 </div>
                 <div class="training-footer-middle">
-
                 </div>
                 <div class="training-footer-end">
                 </div>
@@ -108,6 +107,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4ezwzmDZy2csJYnSdVutPweizVnLxwiQ&language=fr"type="text/javascript">
         </script>
-        <script src="/js/mapController.js"></script>
+        <script src="/js/mapController.js">
+        </script>
+        <script>
+        <% for(var i = 0; i < list.length; i++) { %>
+            initAllGroups("<%= list[i].addresse %>","<%= list[i].name %>");
+        <% } %>
+        </script>
     </body>
 </html>

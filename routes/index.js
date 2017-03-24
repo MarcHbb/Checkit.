@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 router.get('/training', (req, res) => {
   TrainingSpots.getSpots(function(result) {
-    console.log(result.length);
+    console.log(result);
     res.render('training', {list: result});
   });
 });

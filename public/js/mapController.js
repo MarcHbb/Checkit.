@@ -45,3 +45,24 @@ function checkValidityToAddSpot() {
     }
   });
 }
+
+function initAllGroups(address, name) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      var infowindow = new google.maps.InfoWindow({
+        content: name + ": Description soon"
+      });
+      var marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location,
+        title: name,
+        icon: "img/kabuki.png"
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+       });
+    } else {
+    }
+  });
+}

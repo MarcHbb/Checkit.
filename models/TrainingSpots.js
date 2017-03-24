@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 var TrainingSpotsSchema = mongoose.Schema({
-  name: {type:String},
-  addresse : {type: String}
+  addresse : {type: String},
+  name: {type:String}
 });
 
-var TrainingSpots = mongoose.model('TrainingSpots', TrainingSpotsSchema);
+var TrainingSpots = mongoose.model('trainingspots', TrainingSpotsSchema);
 module.exports = TrainingSpots;
 
 module.exports.createSpot = (newSpot, callback) => {
@@ -18,20 +18,3 @@ module.exports.getSpots = (callback) => {
       callback(results);
     });
 }
-
-
-/*
-module.exports.editEvent = (id, callback) => {
-  Event.findOneAndUpdate({ _id:req.params.id},
-    { $set: { eventName: req.body.eventName }},(err, newEvent) => {
-    if(err) throw err;
-    callback(newEvent);
-  });
-}
-
-module.exports.deleteEvent = (id, callback) => {
-  Event.findOneAndRemove({ _id:req.params.id},(err, r_event) => {
-    if(err) throw err;
-  });
-}
-*/
