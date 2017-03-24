@@ -76,20 +76,20 @@
                         <form action="" method="POST" role="form">
                             <div class="form-group">
                                 <label for="">Nom du spot</label>
-                                <input type="text" class="form-control" id="" placeholder="ex: Spot de ouf">
+                                <input type="text" class="form-control" id="" placeholder="ex: Spot de ouf" name="name">
                                 <br>
                                 <label for="">Addresse</label>
-                                <input type="text" class="form-control" id="addressAddSpot" placeholder="ex: 14 avenue des champs">
+                                <input type="text" class="form-control" id="addressAddSpot" name="address" placeholder="ex: 14 avenue des champs">
                                 <br>
                                 <button type="button" class="btn btn-default check-btn" onClick="checkValidityToAddSpot()">Valide ?</button>
                                 <br>
                                 <label for="">Choisis une image</label>
-                                <select>
-                                    <option value="first">Locking</option>
-                                    <option value="second">HipHop</option>
-                                    <option value="third">House</option>
-                                    <option value="fourth">Popping</option>
-                                    <option value="fourth">B-Boying</option>
+                                <select name="img">
+                                    <option value="img/groups/mixer.png">Locking</option>
+                                    <option value="img/groups/rapper.png">HipHop</option>
+                                    <option value="img/groups/Kabuki.png">House</option>
+                                    <option value="img/groups/baseball-cap.png">Popping</option>
+                                    <option value="img/groups/rap.png">B-Boying</option>
                                 </select>
                             </div>
                             <button type="submit" id="training-add-spot" class="btn check-btn-plus-modal">
@@ -111,7 +111,7 @@
         </script>
         <script>
         <% for(var i = 0; i < list.length; i++) { %>
-            initAllGroups("<%= list[i].addresse %>","<%= list[i].name %>");
+            initAllGroups("<%= list[i].addresse %>","<%= list[i].name %>", "<%= list[i].img %>");
         <% } %>
         </script>
     </body>

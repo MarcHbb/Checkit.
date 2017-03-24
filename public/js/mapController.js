@@ -61,7 +61,7 @@ function checkValidityToAddSpot() {
  * @param {String} address indicate the address of the group
  * @param {String} name indicate the name of the group 
  */
-function initAllGroups(address, name) {
+function initAllGroups(address, name, img) {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
@@ -72,7 +72,7 @@ function initAllGroups(address, name) {
         map: map,
         position: results[0].geometry.location,
         title: name,
-        icon: "img/kabuki.png"
+        icon: img
       });
       marker.addListener('click', function() {
         infowindow.open(map, marker);

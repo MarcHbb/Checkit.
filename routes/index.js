@@ -20,4 +20,15 @@ router.get('/training', (req, res) => {
   });
 });
 
+router.post('/training', (req, res) => {
+  var address = req.body.address,
+      name    = req.body.name,
+      img     = req.body.img,
+      newSpot = new TrainingSpots({addresse: address, name: name, img: img});
+
+      TrainingSpots.createSpot(newSpot, () => {
+        res.redirect('/training');
+      });
+});
+
 module.exports = router;

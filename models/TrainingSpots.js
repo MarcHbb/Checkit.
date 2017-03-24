@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 var TrainingSpotsSchema = mongoose.Schema({
   addresse : {type: String},
-  name: {type:String}
+  name: {type:String},
+  img: {type:String}
 });
 
 var TrainingSpots = mongoose.model('trainingspots', TrainingSpotsSchema);
@@ -15,6 +16,6 @@ module.exports.createSpot = (newSpot, callback) => {
 module.exports.getSpots = (callback) => {
   TrainingSpots.find({}, (error, results) => {
     if(error) throw error;
-      callback(results);
+    callback(results);
     });
 }
