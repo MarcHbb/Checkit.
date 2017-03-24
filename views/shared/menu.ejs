@@ -16,24 +16,23 @@
           </div>
           <h3 class="text-muted">
             <a href="/">
-                CHECK !t.
-             </a>
-         </h3>
-        <div class="check-navbar-bottom-item hidden-sm hidden-xs">
-            <% if (!locals.user) { %>
+              CHECK !t.
+            </a>
+          </h3>
+          <div class="check-navbar-bottom-item hidden-sm hidden-xs">
+            <% if (locals.user) { %>
+                <a href="/annonce" class="sliding-u-l-r-l">
+                  <span>Annonce</span>
+                </a>
+                <a href="/users/Logout" class="sliding-u-l-r-l">
+                  <span>Se Deconnecter</span>
+                </a>
+                <% } else { %>
             <a href="/users/register" class="sliding-u-l-r-l">
             <span>Inscription</span>
             </a>
             <a href="/users/login" class="sliding-u-l-r-l">
               <span>Connexion</span>
-            </a>
-             <% }
-             if (locals.user) { %>
-            <a href="/annonce" class="sliding-u-l-r-l">
-              <span>Annonce</span>
-            </a>
-            <a href="/users/Logout" class="sliding-u-l-r-l">
-              <span>Se Deconnecter</span>
             </a>
              <% } %>
         </div>

@@ -5,7 +5,7 @@ var EventSchema = mongoose.Schema({
   category: {type: String},
   desc: {type: String},
   versus: {type: String},
-  idUser: {type: String}
+  user: {type: String}
 });
 
 var Event = mongoose.model('Event', EventSchema);
@@ -17,6 +17,11 @@ module.exports.createEvent = (newEvent, callback) => {
 
 module.exports.getEventById = (id, callback) => {
   Event.findById(id, callback);
+}
+
+module.exports.getEventByUser = (username, callback) => {
+  var query = {user : username};
+  User.findOne(query, callback);
 }
 
 module.exports.getEvents = (callback) => {

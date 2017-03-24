@@ -5,6 +5,7 @@ const express       = require('express'),
       LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/User');
+var Event = require('../models/Event');
 
 
 // Register
@@ -99,14 +100,13 @@ passport.deserializeUser((id, done) => {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash:'Invalid username or password'}),
-  (req, res) => {
+  passport.authenticate('local'), (req, res) => {
     res.redirect('/');
   });
 
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-});
+  router.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+  });
 
 module.exports = router;

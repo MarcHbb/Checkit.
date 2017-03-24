@@ -6,22 +6,22 @@
     <div class="header clearfix">
       <nav class="wrap-menu">
         <div class="check-navbar-top-item hidden-sm hidden-xs">
-          <a href="/" class="sliding-u-l-r-l">
+          <a class="sliding-u-l-r-l">
             <span>Evenements</span>
           </a>
           <a href="/training" class="sliding-u-l-r-l">
             <span>Training Spots</span>
           </a>
-            <a href="/" class="sliding-u-l-r-l">
+          <a class="sliding-u-l-r-l">
               <span>Marques</span>
             </a>
           </div>
           <h3 class="text-muted">
             <a href="/">
-                CHECK !t.
-             </a>
-         </h3>
-        <div class="check-navbar-bottom-item hidden-sm hidden-xs">
+              CHECK !t.
+            </a>
+          </h3>
+          <div class="check-navbar-bottom-item hidden-sm hidden-xs">
           <% if(locals.user){ %>
             <a href="/annonce" class="sliding-u-l-r-l">
               <span>Annonces</span>
@@ -30,7 +30,7 @@
               <span>Deconnexion</span>
             </a>
           <% } else { %>
-
+          <div class="check-navbar-bottom-item hidden-sm hidden-xs">
             <a href="/users/register" class="sliding-u-l-r-l">
               <span>Inscription</span>
             </a>
@@ -60,7 +60,8 @@
     </div>
     <div class="row">
 
-        <% for (let i = 0; i < locals.list.length; i++){ %>
+        <% if(locals.list) {
+          for (let i = 0; i < locals.list.length; i++){ %>
 
         <div class="col-lg-4 col-md-4 col-sm-4 check-events-card">
             <div class="check-header-card ex1 text-center">
@@ -87,7 +88,7 @@
             </div>
         </div>
 
-      <% }  %>
+      <% } } %>
 
     </div>
 </div>
@@ -111,4 +112,13 @@
 
 </div>
 
-<% include shared/footer.ejs %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/typed.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        Typed.new('.typeMoment', {
+            strings: ["Just for Hip Hop."],
+            typeSpeed: 0
+        });
+    });
+</script>

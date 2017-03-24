@@ -2,6 +2,11 @@
 
 <% include shared/menu.ejs %>
 
+<div class="row text-center">
+    <h1>Modifier annonce</h1>
+    <hr>
+</div>
+
 
 <form method="post" action="/annonce/edit" class="col-lg-4 col-lg-offset-4">
   <div class="form-group">
@@ -21,14 +26,14 @@
     <textarea type="text" class="form-control" rows="3" name="desc"><%= locals.e_event.desc %></textarea>
   </div>
   <input type="hidden" value="<%= locals.e_event.id %>" name="id"/>
-  <br><br>
+  <br>
   <button type="submit" class="btn btn-default button">Submit</button>
 </form>
 
 <form method="post" action="/annonce/delete" class="col-lg-4 col-lg-offset-4" action="annonce/delete" >
   <input type="hidden" value="<%= locals.e_event.id %>" name="id"/>
-
-  <button type="submit" class="btn btn-default button">Delete</button>
+  <br>
+  <button type="submit" class="btn btn-default delete-button">Delete</button>
 </form>
 
 

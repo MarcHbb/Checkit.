@@ -2,9 +2,12 @@ const express = require('express'),
       router  = express.Router();
 
 var Event         = require('../models/Event'),
+    User          = require('../models/User'),
     TrainingSpots = require('../models/TrainingSpots');
 
 // Get Homepage
+
+
 router.get('/', (req, res) => {
 
   Event.getEvents(function(evenement) {

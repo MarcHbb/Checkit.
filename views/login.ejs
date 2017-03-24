@@ -6,11 +6,15 @@
 <div class="row text-center">
     <h1>Connexion</h1>
     <hr>
-</div>
 
+  </div>
+    <% if(locals.redirection){ %>
+      <span class="error"><%= redirection %></span>
+      <% } %>
 
+      <% if (error. length > 0) { %>
+        <span class="error"><%= error %></span>
 
-<% if (error. length > 0) { %>
 
   <form method="post" action="/users/login" class="col-lg-4 col-lg-offset-4 form">
     <div class="form-group has-error">
@@ -23,22 +27,21 @@
     </div>
 
     <button type="submit" class="btn btn-default button">Connect</button>
-    <div class="error">
-      <%= error %>
-    </div>
+
 
   </form>
 
 
 
 <% } else { %>
+
   <% if(locals.success){ %>
 
   <% } %>
 
   <form method="post" action="/users/login" class="col-lg-4 col-lg-offset-4 form">
       <% if(locals.success){ %>
-        <span class="success-msg"><%= success %></span><br> 
+        <span class="success-msg"><%= success %></span><br>
       <% } %>
     <div class="form-group">
       <label>Username</label>

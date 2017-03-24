@@ -8,8 +8,7 @@ function ensureAuthentificated(req, res, next) {
   if(req.isAuthenticated()){
     return next();
   } else {
-    req.flash('error_msg', 'You must login to publish events');
-    res.redirect('/users/login');
+    res.render('login', {redirection : 'You must log in to publish event'});
   }
 }
 
