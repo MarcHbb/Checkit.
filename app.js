@@ -17,11 +17,9 @@ mongoose.connect('mongodb://user:user@ds127300.mlab.com:27300/danceco', function
   db = mongoose.connection;
 });
 
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var annonce = require('./routes/annonce');
-
+var routes  = require('./routes/index'),
+    users   = require('./routes/users'),
+    annonce = require('./routes/annonce');
 
 // Init App
 var app = express();
@@ -51,9 +49,9 @@ app.use(passport.session());
 // Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+      var namespace = param.split('.'),
+          root      = namespace.shift(),
+          formParam = root;
 
     while(namespace.length) {
       formParam += '[' + namespace.shift() + ']';
@@ -82,10 +80,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/annonce', annonce);
 
-
 // Set Port
 app.set('port', port);
-
 app.listen(port, () => {
   console.log(`Server running on port :${port}`)
 });
